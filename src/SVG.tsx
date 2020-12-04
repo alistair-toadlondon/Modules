@@ -12,6 +12,7 @@ export const SVG: React.FC<ISVGProps> = ({ name, ...rest }): JSX.Element | null 
     const importSVG = async (): Promise<void> => {
       try {
         ImportedSVGRef.current = (await import(`!!@svgr/webpack?-svgo,+titleProp,+ref!./${name}.svg`)).default;
+        //ImportedSVGRef.current = (await import(`./${name}.svg`)).ReactComponent;
       } catch (err) {
         throw err;
       } finally {
