@@ -13,12 +13,13 @@ interface DropZoneState {
 interface DropItemState {
   name: string;
   type: string;
-  svg: string;
+  image: string;
   style: React.CSSProperties;
 }
 
 export interface DragDropProps {
   items: any;
+  background: string;
 }
 export interface DropZoneSpec {
   accepts: string[];
@@ -29,34 +30,23 @@ export interface DropItemSpec {
   type: string;
 }
 
-export const ItemTypes = {
-  FRONTAL_LOBE: 'frontal lobe',
-  OCCIPITAL_LOBE: 'occipital lobe',
-  TEMPORAL_LOBE: 'temporal lobe',
-  CEREBELUM: 'cerebelum',
-  MEDULA: 'medula',
-  BRAIN_STEM: 'brain stem'
-}
-
-export const DragDrop: React.FC<DragDropProps> = ({ items }) => {
-  const [dropZones, setDropZones] = useState<DropZoneState[]>([
-    { accepts: [ItemTypes.FRONTAL_LOBE], style: { width: '264px', height: '239px', top: '11px', left: '11px' }, lastDroppedItem: null },
-    { accepts: [ItemTypes.OCCIPITAL_LOBE], style: { width: '137px', height: '118px', top: '27px', left: '233px' }, lastDroppedItem: null },
-    { accepts: [ItemTypes.TEMPORAL_LOBE], style: { width: '169px', height: '125px', top: '134px', left: '207px' }, lastDroppedItem: null },
-    { accepts: [ItemTypes.CEREBELUM], style: { width: '39px', height: '102px', top: '107px', left: '365px' }, lastDroppedItem: null },
-    { accepts: [ItemTypes.MEDULA], style: { width: '136px', height: '83px', top: '210px', left: '244px' }, lastDroppedItem: null },
-    { accepts: [ItemTypes.BRAIN_STEM], style: { width: '77px', height: '123px', top: '249px', left: '188px' }, lastDroppedItem: null }
-  ]);
-
-  const [dropItems, setDropItems] = useState<DropItemState[]>([
-    { name: 'frontal lobe', type: ItemTypes.FRONTAL_LOBE, svg: 'assets/frontal_lobe', style: { top: '-200px', left: '-280px' } },
-    { name: 'occipital lobe', type: ItemTypes.OCCIPITAL_LOBE, svg: 'assets/occipital_lobe', style: { top: '100px', left: '-280px' } },
-    { name: 'temporal lobe', type: ItemTypes.TEMPORAL_LOBE, svg: 'assets/temporal_lobe', style: { top: '350px', left: '-280px' } },
-    { name: 'cerebelum', type: ItemTypes.CEREBELUM, svg: 'assets/cerebelum', style: { top: '-200px', right: '-280px' } },
-    { name: 'medula', type: ItemTypes.MEDULA, svg: 'assets/medula', style: { top: '100px', right: '-280px' } },
-    { name: 'brain stem', type: ItemTypes.BRAIN_STEM, svg: 'assets/brain_stem', style: { top: '350px', right: '-280px' } }
-  ]);
-
+export const DragDrop: React.FC<DragDropProps> = ({ items, background }) => {
+  let dZones = [], dItems = [];
+  for (const item of items) {
+    dZones.push({
+      accepts: [item.name],
+      style: { width: item.size.width, height: item.size.width, top: item.endPos.Y, left: item.endPos.X },
+      lastDroppedItem: null
+    });
+    dItems.push({
+      name: item.name,
+      type: item.name,
+      image: item.image,
+      style: { top: item.startPos.Y, left: item.startPos.X }
+    });
+  }
+  const [dropZones, setDropZones] = useState<DropZoneState[]>(dZones);
+  const [dropItems, setDropItems] = useState<DropItemState[]>(dItems);
   const [droppedItems, setDroppedItems] = useState<string[]>([]);
 
   function isDropped(dropItem: string) {
@@ -111,7 +101,12 @@ export const DragDrop: React.FC<DragDropProps> = ({ items }) => {
 
   return (
     <div className="container">
-      <SVG name="assets/brain" style={{ position: 'absolute', zIndex: 2 }} />
+      {(background.substr(background.lastIndexOf('.') + 1) === 'svg') && (
+        <SVG name={background} style={{ position: 'absolute', zIndex: 2 }} />
+      )}
+      {(background.substr(background.lastIndexOf('.') + 1) !== 'svg') && (
+        <img src={require(`./${background}`)} alt="" />
+      )}
 
       <div style={{ overflow: 'hidden', clear: 'both' }}>
         {dropZones.map(({ accepts, style, lastDroppedItem }, index) => (
@@ -126,11 +121,11 @@ export const DragDrop: React.FC<DragDropProps> = ({ items }) => {
       </div>
 
       <div style={{ overflow: 'hidden', clear: 'both' }}>
-        {dropItems.map(({ name, type, svg, style }, index) => (
+        {dropItems.map(({ name, type, image, style }, index) => (
           <DropItem
             name={name}
             type={type}
-            svg={svg}
+            image={image}
             style={style}
             isDropped={isDropped(name)}
             key={index}

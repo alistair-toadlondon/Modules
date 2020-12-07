@@ -9,12 +9,12 @@ const noMP3 = require('./assets/no.mp3');
 export interface DropItemProps {
   name: string;
   type: string;
-  svg: any;
+  image: any;
   style: React.CSSProperties;
   isDropped: boolean;
 }
 
-export const DropItem: React.FC<DropItemProps> = ({ name, type, svg, style, isDropped }) => {
+export const DropItem: React.FC<DropItemProps> = ({ name, type, image, style, isDropped }) => {
   const [{ opacity/*, zIndex, filter, transform*/ }, drag] = useDrag({
     item: { name, type },
     collect: (monitor) => ({
@@ -41,7 +41,12 @@ export const DropItem: React.FC<DropItemProps> = ({ name, type, svg, style, isDr
 
   return (
     <div ref={drag} className="dropItem" style={{ ...style, opacity }}>
-      <SVG name={svg} />
+      {(image.substr(image.lastIndexOf('.') + 1) === 'svg') && (
+        <SVG name={image} />
+      )}
+      {(image.substr(image.lastIndexOf('.') + 1) !== 'svg') && (
+        <img src={require(`./${image}`)} alt="" />
+      )}
       {/*isDropped ? <s>{name}</s> : name*/}
     </div>
   );
