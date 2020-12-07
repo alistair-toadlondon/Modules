@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DragDrop } from './DragDrop';
-import { relative } from 'path';
+import { SVG } from './SVG';
 
 function App() {
   interface DroppedItemState {
@@ -31,7 +31,9 @@ function App() {
   return (
     <div className="App">{/*1280 X 1024*/}
       <DndProvider backend={HTML5Backend}>
-        <div style={{position: 'relative',  width: '1200px', height: '800px', margin: 'auto', border: '1px dashed #ccc', background: 'url("' + require(`./assets/brain.svg`) + '") no-repeat center center' }}>
+        <div style={{position: 'relative',  width: '1200px', height: '800px', margin: 'auto', border: '1px dashed #ccc'/*, background: 'url("' + require(`./assets/brain.svg`) + '") no-repeat center center'*/ }}>
+          <SVG name={'assets/brain.svg'} style={{ position: 'absolute', left: '393px', top: '208px', zIndex: 3 }} />
+
           <DragDrop items={items} background={''} callback={itemDropped} finished={finished} />
 
           <div className="infoBox blackText" style={{ display: ((lastDropped === 'FRONTAL_LOBE') ? 'block' : 'none'), background: '#b6a800' }}>

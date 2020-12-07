@@ -39,8 +39,9 @@ div.infoBox div {
 
 div.infoBox div h2 {
   margin: 5px 0 5px 0;
-  font-family: 'mikado_bold_demoregular';
+  font-family: 'mikado_bold_demoregular', Arial, Helvetica, sans-serif;
   font-size: 20px;
+  font-weight: bold;
   color: #fff;
 }
 
@@ -48,6 +49,7 @@ div.infoBox div p {
   margin: 10px 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  line-height: 150%;
   color: #fff;
 }
 
