@@ -12,9 +12,10 @@ export interface DropItemProps {
   image: any;
   style: React.CSSProperties;
   isDropped: boolean;
+  callback: any;
 }
 
-export const DropItem: React.FC<DropItemProps> = ({ name, type, image, style, isDropped }) => {
+export const DropItem: React.FC<DropItemProps> = ({ name, type, image, style, isDropped, callback }) => {
   const [{ opacity/*, zIndex, filter, transform*/ }, drag] = useDrag({
     item: { name, type },
     collect: (monitor) => ({
@@ -29,6 +30,7 @@ export const DropItem: React.FC<DropItemProps> = ({ name, type, image, style, is
     end: (item, monitor) => {
       if (isDropped) {
         playYes();
+        callback(name);
       } else {
         playNo();
       }

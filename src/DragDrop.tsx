@@ -20,6 +20,8 @@ interface DropItemState {
 export interface DragDropProps {
   items: any;
   background: string;
+  callback: any;
+  finished: any;
 }
 export interface DropZoneSpec {
   accepts: string[];
@@ -30,7 +32,7 @@ export interface DropItemSpec {
   type: string;
 }
 
-export const DragDrop: React.FC<DragDropProps> = ({ items, background }) => {
+export const DragDrop: React.FC<DragDropProps> = ({ items, background, callback, finished }) => {
   let dZones = [], dItems = [];
   for (const item of items) {
     dZones.push({
@@ -94,7 +96,7 @@ export const DragDrop: React.FC<DragDropProps> = ({ items, background }) => {
       for (i = 0; i < dropZones.length; i++) {
         if (dropZones[i].lastDroppedItem) dropped += 1;
       }
-      if (dropped === dropZones.length) alert('You win!!!');
+      if (dropped === dropZones.length) finished(); //alert('You win!!!');
     },
     [droppedItems, dropZones, dropItems]
   );
@@ -128,6 +130,7 @@ export const DragDrop: React.FC<DragDropProps> = ({ items, background }) => {
             image={image}
             style={style}
             isDropped={isDropped(name)}
+            callback={callback}
             key={index}
           />
         ))}
