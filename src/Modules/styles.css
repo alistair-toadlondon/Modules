@@ -49,6 +49,7 @@ div.module {
     width: 100%;
     height: 100%;
     margin: auto;*/
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -75,8 +76,20 @@ div.module div.col2 {
   flex-basis: 50%;
 }
 
-span.magenta {
+.magenta {
     color: #E91F61;
+}
+
+/* Counter */
+table.counter {
+    width: auto;
+}
+
+table.counter td {
+    width: auto;
+    color: #E91F61;
+    text-align: right;
+    font-size: 120px;
 }
 
 /* DnD brain game container 
