@@ -1,0 +1,13 @@
+div.container {
+    position: relative;
+    display: block;
+}
+
+div.dropZone {
+    position: absolute;
+    z-index: 3;
+}
+
+div.dropItem {
+    position: absolute;
+}

@@ -4,7 +4,6 @@
   "description": "auto-generated package for codesandbox import",
   "private": true,
   "version": "0.0.0",
-  "homepage": "http://alistair-toadlondon.github.io/brain-game-demo",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
