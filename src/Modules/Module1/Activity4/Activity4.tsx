@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SVG } from '../../components/svg/svg';
 import useSound from 'use-sound';
 import IActivityProps from '../../IActivityProps';
 const yesMP3 = require('../../assets/yes.mp3');
 const timerMP3 = require('../../assets/timer.mp3');
 
-interface IToggleActivityProps { 
+interface IToggleActivityProps {
     inProgressCondition?: boolean;
     doneCondition?: boolean;
 }
 
-const Activity4: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
-    const [status, setStatus] = React.useState('');
-    const [timer, setTimer] = React.useState(0);
+const Activity4: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({ inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
+    const [status, setStatus] = useState('');
+    const [timer, setTimer] = useState(0);
 
     let start = 0,
         end = 100000000000,

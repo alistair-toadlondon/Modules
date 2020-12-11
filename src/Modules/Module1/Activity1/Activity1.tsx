@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DragDrop } from '../../components/dragdrop/dragdrop';
 import { SVG } from '../../components/svg/svg';
 import IActivityProps from '../../IActivityProps';
 
-interface IToggleActivityProps { 
+interface IToggleActivityProps {
     inProgressCondition?: boolean;
     doneCondition?: boolean;
 }
 
-const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
+const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({ inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
     var items = [
         { name: 'FRONTAL_LOBE', size: { width: '264px', height: '239px' }, startPos: { X: '-380px', Y: '-200px' }, endPos: { X: '10px', Y: '12px' }, image: 'frontal_lobe.svg', dropped: false },
         { name: 'PARIETAL', size: { width: '137px', height: '118px' }, startPos: { X: '-380px', Y: '100px' }, endPos: { X: '233px', Y: '27px' }, image: 'occipital_lobe.svg', dropped: false },
@@ -20,7 +20,7 @@ const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
         { name: 'BRAIN_STEM', size: { width: '77px', height: '123px' }, startPos: { X: '-130px', Y: '320px' }, endPos: { X: '188px', Y: '249px' }, image: 'brain_stem.svg', dropped: false }
     ];
     
-    const [lastDropped, setLastDropped] = React.useState('');
+    const [lastDropped, setLastDropped] = useState('');
     const itemDropped = (item: string) => {
         setLastDropped(item);
     }

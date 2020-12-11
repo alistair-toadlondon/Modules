@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SVG } from '../../components/svg/svg';
 import useSound from 'use-sound';
 import IActivityProps from '../../IActivityProps';
 const startMP3 = require('../../assets/start.mp3');
 
-interface IToggleActivityProps { 
+interface IToggleActivityProps {
     inProgressCondition?: boolean;
     doneCondition?: boolean;
 }
 
-const Activity3: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
-    const [status, setStatus] = React.useState(['']);
+const Activity3: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({ inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
+    const [status, setStatus] = useState(['']);
 
     const flip = (num: string, event: any) => {
         playStart();
@@ -21,7 +21,6 @@ const Activity3: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
             arr.push(num);
         }
         setStatus(arr);
-        console.log()
         if (arr.length === 5) onSatisfiedCondition(event);
     }
 

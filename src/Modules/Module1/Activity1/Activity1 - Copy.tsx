@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DragDrop } from '../../components/dragdrop/dragdrop';
@@ -20,7 +20,7 @@ const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
         { name: 'BRAIN_STEM', size: { width: '77px', height: '123px' }, startPos: { X: '-130px', Y: '320px' }, endPos: { X: '188px', Y: '249px' }, image: 'brain_stem.svg', dropped: false }
     ];
     
-    const [lastDropped, setLastDropped] = React.useState('');
+    const [lastDropped, setLastDropped] = useState('');
     const itemDropped = (item: string) => {
         setLastDropped(item);
     }

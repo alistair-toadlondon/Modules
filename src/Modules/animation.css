@@ -102,6 +102,53 @@
     }
 }
 
+/* Spring up */
+.spring {
+    height: 200px;
+    width: 200px;
+    transition: all 300ms ease;
+    opacity: 0;
+    background: #fff;
+    animation: springdown 400ms ease forwards;
+    will-change: transform;
+}
+
+.springup {
+    opacity: 1;
+    animation: springup 900ms ease forwards;
+    will-change: transform;
+}
+
+@keyframes springup {
+    0% {
+        transform: translateY(300px) scale3d(0.96, 0.96, 1.00);
+    }
+    20% {
+        transform: translateY(80px) scale3d(1.10, 1.10, 1.00);
+    }
+    40% {
+        transform: translateY(50px) scale3d(0.98, 0.98, 1.00);
+    }
+    60% {
+        transform: translateY(62px) scale3d(1.05, 1.05, 1.00);
+    }
+    80% {
+        transform: translateY(60px) scale3d(1.01, 1.01, 1.00);
+    }
+    100% {
+        transform: translateY(60px) scale3d(1.00, 1.00, 1.00);
+    }
+}
+
+@keyframes springdown {
+    0% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateY(0) scale3d(0.96, 0.96, 1);
+    }
+}
+
 /* Card flips */
 .flip, .flipLR, .flipRL, .flipTB, .flipBT {
     width: 100%;

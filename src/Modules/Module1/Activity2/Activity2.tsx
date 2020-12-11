@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SVG } from '../../components/svg/svg';
 import useSound from 'use-sound';
 import IActivityProps from '../../IActivityProps';
 const yesMP3 = require('../../assets/yes.mp3');
 const noMP3 = require('../../assets/no.mp3');
 
-interface IToggleActivityProps { 
+interface IToggleActivityProps {
     inProgressCondition?: boolean;
     doneCondition?: boolean;
 }
 
-const Activity2: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
-    const [status, setStatus] = React.useState('');
+const Activity2: React.FunctionComponent<IToggleActivityProps & IActivityProps> = ({ inProgressCondition, doneCondition, onSatisfiedCondition, onValidate }:IToggleActivityProps & IActivityProps) => {
+    const [status, setStatus] = useState('');
 
     const win = (event: any) => {
-        if (status != 'win') playYes();
+        if (status !== 'win') playYes();
         setStatus('win');
         onValidate!(true);
         onSatisfiedCondition(event);
     }
 
     const loose = (event: any) => {
-        if (status != 'loose') playNo();
+        if (status !== 'loose') playNo();
         setStatus('loose');
         onValidate!(false);
     }

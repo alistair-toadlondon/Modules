@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export interface ISVGProps extends React.SVGProps<SVGSVGElement> {
   src: string;
@@ -6,8 +6,8 @@ export interface ISVGProps extends React.SVGProps<SVGSVGElement> {
 
 export const SVG: React.FC<ISVGProps> = ({ src, ...rest }): JSX.Element | null => {
   const ImportedSVGRef = React.useRef<React.FC<React.SVGProps<SVGSVGElement>> | any>();
-  const [loading, setLoading] = React.useState(false);
-  React.useEffect((): void => {
+  const [loading, setLoading] = useState(false);
+  useEffect((): void => {
     setLoading(true);
     const importSVG = async (): Promise<void> => {
       try {

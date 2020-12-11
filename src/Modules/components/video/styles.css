@@ -1,0 +1,18 @@
+div.videoContainer, div.videoContainer div {
+    display: 'inline-block';
+    clip-path: circle(50.2% at center);
+    overflow: hidden !important;
+}
+
+div.videoContainer div {
+    clip-path: circle(49% at center);
+    background: #fff;
+}
+
+video, video:focus, *:focus, * {
+    outline: 0;
+    border: 0;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
