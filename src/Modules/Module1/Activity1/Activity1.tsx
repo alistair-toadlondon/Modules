@@ -3,6 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DragDrop } from '../../components/dragdrop/dragdrop';
 import { SVG } from '../../components/svg/svg';
+import { InfoBox } from '../../components/infobox/infobox';
 import IActivityProps from '../../IActivityProps';
 
 interface IToggleActivityProps {
@@ -43,47 +44,46 @@ const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
                     </div>
 
                     <div className="infoBoxContainer">
-                        <div className="infoBox blackText" style={{ display: ((lastDropped === 'FRONTAL_LOBE') ? 'block' : 'none'), background: '#b6a800' }}>
-                            <div style={{ background: '#ffec00' }}>
-                                <h2>Frontal Lobe</h2>
-                                <p>This part of the brain is really important for thinking, memory and behaviour. It’s used for making decisions.</p>
-                                <p>Would you rather read a book or go for a walk?</p>
-                            </div>
-                        </div>
-                        <div className="infoBox whiteText" style={{ display: ((lastDropped === 'PARIETAL') ? 'block' : 'none'), background: '#961410' }}>
-                            <div style={{ background: '#d41c17' }}>
-                                <h2>Parietal</h2>
-                                <p>This part makes sense of what we touch and taste, so it helps you know whether your dinner is yummy or yucky!</p>
-                                <p>Find something smooth, find something rough and touch them at the same time. Your brain will help you notice the difference.</p>
-                            </div>
-                        </div>
-                        <div className="infoBox whiteText" style={{ display: ((lastDropped === 'TEMPORAL_LOBE') ? 'block' : 'none'), background: '#0070a0' }}>
-                            <div style={{ background: '#009ee2' }}>
-                                <h2>Temporal lobe</h2>
-                                <p>This is really important for sound, speech and long-term memory. Next week when you are tried to remember what you learnt in CUES-Ed today, this part of your brain will be working very hard.</p>
-                                <p>Have a think, who was your first teacher?</p>
-                            </div>
-                        </div>
-                        <div className="infoBox blackText" style={{ display: ((lastDropped === 'OCCIPITAL_LOBE') ? 'block' : 'none'), background: '#688816' }}>
-                            <div style={{ background: '#93c01f' }}>
-                                <h2>Occipital Lobe</h2>
-                                <p>This is in charge of processing information from your eyes, extremely quickly. It will be working very hard right now. Ever heard of the phrase ‘I’ve got eyes in the back of my head’?! This is where it comes from!</p>
-                                <p>How many parts of the brain can you count?</p>
-                            </div>
-                        </div>
-                        <div className="infoBox whiteText" style={{ display: ((lastDropped === 'CEREBELLUM') ? 'block' : 'none'), background: '#a30059' }}>
-                            <div style={{ background: '#e5007e' }}>
-                                <h2>Cerebellum</h2>
-                                <p>This is in charge of balance and co-ordination.</p>
-                                <p>Stand on one leg if you can. Can you tap your head with one hand and rubyour tummy with the other? Have a go. Swap. Was one side easier than the other?</p>
-                            </div>
-                        </div>
-                        <div className="infoBox whiteText" style={{ display: ((lastDropped === 'BRAIN_STEM') ? 'block' : 'none'), background: '#a95900' }}>
-                            <div style={{ background: '#ee7d00' }}>
-                                <h2>Brain Stem</h2>
-                                <p>The brain stem is in charge of breathing, heartbeat and temperature. It keeps you alive without you even having to think about it.</p>
-                            </div>
-                        </div>
+                        <InfoBox
+                            title="Frontal Lobe"
+                            text={[ "This part of the brain is really important for thinking, memory and behaviour. It’s used for making decisions.",
+                                    "Would you rather read a book or go for a walk?" ]}
+                            colour="yellow"
+                            style={{ display: ((lastDropped === 'FRONTAL_LOBE') ? 'block' : 'none') }} />
+
+                        <InfoBox
+                            title="Parietal"
+                            text={[ "This part makes sense of what we touch and taste, so it helps you know whether your dinner is yummy or yucky!",
+                                    "Find something smooth, find something rough and touch them at the same time. Your brain will help you notice the difference." ]}
+                            colour="red"
+                            style={{ display: ((lastDropped === 'PARIETAL') ? 'block' : 'none') }} />
+
+                        <InfoBox
+                            title="Temporal lobe"
+                            text={[ "This is really important for sound, speech and long-term memory. Next week when you are tried to remember what you learnt in CUES-Ed today, this part of your brain will be working very hard.",
+                                    "Have a think, who was your first teacher?" ]}
+                            colour="blue"
+                            style={{ display: ((lastDropped === 'TEMPORAL_LOBE') ? 'block' : 'none') }} />
+
+                        <InfoBox
+                            title="Occipital Lobe"
+                            text={[ "This is in charge of processing information from your eyes, extremely quickly. It will be working very hard right now. Ever heard of the phrase ‘I’ve got eyes in the back of my head’?! This is where it comes from!",
+                                    "How many parts of the brain can you count?" ]}
+                            colour="green"
+                            style={{ display: ((lastDropped === 'OCCIPITAL_LOBE') ? 'block' : 'none') }} />
+
+                        <InfoBox
+                            title="Cerebellum"
+                            text={[ "This is in charge of balance and co-ordination.",
+                                    "Stand on one leg if you can. Can you tap your head with one hand and rubyour tummy with the other? Have a go. Swap. Was one side easier than the other?" ]}
+                            colour="magenta"
+                            style={{ display: ((lastDropped === 'CEREBELLUM') ? 'block' : 'none') }} />
+
+                        <InfoBox
+                            title="Brain Stem"
+                            text={[ "The brain stem is in charge of breathing, heartbeat and temperature. It keeps you alive without you even having to think about it." ]}
+                            colour="orange"
+                            style={{ display: ((lastDropped === 'BRAIN_STEM') ? 'block' : 'none') }} />
                     </div>
                 </DndProvider>
             </div>

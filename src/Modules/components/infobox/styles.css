@@ -1,0 +1,101 @@
+div.infoBox_yellow {
+    background-color: #b6a800;
+}
+div.infoBox_yellow div {
+    color: #000;
+    background-color: #ffec00;
+}
+
+div.infoBox_red {
+    background-color: #961410;
+}
+div.infoBox_red div {
+    color: #fff;
+    background-color: #D41C17;
+}
+
+div.infoBox_green {
+    background-color: #688816;
+}
+div.infoBox_green div {
+    color: #000;
+    background-color: #93C01F;
+}
+
+div.infoBox_magenta {
+    background-color: #A30059;
+}
+div.infoBox_magenta div {
+    color: #fff;
+    background-color: #E5007E;
+}
+
+div.infoBox_blue {
+    background-color: #0070A0;
+}
+div.infoBox_blue div {
+    color: #fff;
+    background-color: #009EE2;
+}
+
+div.infoBox_orange {
+    background-color: #A95900;
+}
+div.infoBox_orange div {
+    color: #fff;
+    background-color: #EE7D00;
+}
+
+
+div.infoBox_tooltip {
+    background-color: #AD6800;
+}
+div.infoBox_tooltip div {
+    color: #000;
+    padding-top: 35px !important;
+    background-color: #FFC53D;
+}
+
+img.tooltip {
+    position: absolute;
+    width: 70px;
+    top: -35px;
+    left: calc(50% - 35px);
+}
+div.infoBox_tooltip svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -20px;
+    right: 12px;
+}
+
+
+div.infoBox_yellow div, div.infoBox_yellow div h2, div.infoBox_yellow div p {
+    color: #000;
+}
+
+div.infoBox_green div, div.infoBox_green h2, div.infoBox_green p {
+    color: #000;
+}
+
+div.infoBox_tooltip div, div.infoBox_tooltip h2, div.infoBox_tooltip p {
+    color: #000;
+}
+
+
+div.infoBox_red div, div.infoBox_red h2, div.infoBox_red p {
+    color: #fff;
+}
+
+div.infoBox_magenta div, div.infoBox_magenta h2, div.infoBox_magenta p {
+    color: #fff;
+}
+
+div.infoBox_blue div, div.infoBox_blue h2, div.infoBox_blue p {
+    color: #fff;
+}
+
+div.infoBox_orange div, div.infoBox_orange h2, div.infoBox_orange p {
+    color: #fff;
+}

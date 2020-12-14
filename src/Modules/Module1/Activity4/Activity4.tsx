@@ -35,7 +35,7 @@ const Activity4: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
         if (status === 'running') return;
         runTimer(event);
         setStatus('running');
-        playStart();
+        //playStart();
         //onValidate!(false);
     }
 
@@ -61,7 +61,7 @@ const Activity4: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
             setTimeout(() => {
                 setTimer(end);
                 stop();
-                playYes();
+                //playYes();
                 onSatisfiedCondition(event);
             }, 700);
         }
