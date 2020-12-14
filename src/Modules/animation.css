@@ -201,7 +201,6 @@
     height: 100%;
     background: #fff;
     backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .flip.flipped, .flipLR.flipped {
@@ -234,6 +233,42 @@
 
 .flipBT .back {
     transform: rotateX(-180deg);
+}
+
+div.roundCard > section {
+    position: relative;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    padding: 10px;
+    background: #3D2A6E;
+    clip-path: circle(50% at center);
+}
+
+div.roundCard > section > section {
+    position: relative;
+    width: 100%; /*calc(100% - 20px);*/
+    height: 100%; /*calc(100% - 20px);*/
+    background: #00A4bF;
+    clip-path: circle(50% at center);
+}
+
+div.roundCard > section > section p {
+    color: #fff;
+}
+
+div.roundCard > img {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    top: -60px;
+    z-index: 2;
+    left: calc(50% - 55px);
+}
+
+div.roundCard > p {
+    padding: 20px 0 !important;
+    font: 24px/32px 'mikadobold' !important;
+    color: #3D2A6E;
 }
 
 /* fade out->in */

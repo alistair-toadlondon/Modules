@@ -66,7 +66,8 @@ const Activity3: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
                             <p>3</p>
                         </div>
                         <div className="front" onClick={() => flip('3', null)}>
-                            <SVG src="angry_ed.svg" />
+                            <img src={require(`../../assets/ed_angry.png`)} alt="" style={{ height: '115px' }} />
+                            {/*<SVG src="ed_angry.svg" style={{ height: '120px' }} />*/}
                             <p>The human brain can<br />
                                 feel emotions a<br />
                                 computer can't!</p>
@@ -79,7 +80,7 @@ const Activity3: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
                             <p>4</p>
                         </div>
                         <div className="front" onClick={() => flip('4', null)}>
-                            <SVG src="taste.svg" />
+                            <SVG src="chloe_taste.svg" style={{ height: '130px' }} />
                             <p>The human brain helps<br />
                                 us tast yummy food,<br />
                                 even robots can't!</p>

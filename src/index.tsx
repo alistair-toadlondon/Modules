@@ -10,6 +10,8 @@ import Activity7 from './Modules/Module1/Activity7/Activity7';
 import Activity8 from './Modules/Module1/Activity8/Activity8';
 import Activity9 from './Modules/Module1/Activity9/Activity9';
 import Activity10 from './Modules/Module1/Activity10/Activity10';
+import Activity11 from './Modules/Module1/Activity11/Activity11';
+import Activity12 from './Modules/Module1/Activity12/Activity12';
 import { Video } from './Modules/components/video/video';
 import './Modules/styles.css';
 import './Modules/animation.css';
@@ -32,7 +34,7 @@ function App() {
     return (
         <>
             {/*<Video width={100} height={100} character="Chloe" transitionTo={transitionTo} borderColour="red" close={true} />*/}
-            <Activity10 onSatisfiedCondition={finished} onValidate={validate} />
+            <Activity12 onSatisfiedCondition={finished} onValidate={validate} />
         </>
     );
 }

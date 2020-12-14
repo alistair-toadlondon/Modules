@@ -93,7 +93,8 @@ const Activity4: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
             </div>
             <div className="module moduleRow">
                 <div style={{ clipPath: 'circle(120px at center)', cursor: 'pointer' }} onClick={startTimer}>
-                    <SVG src="neurons.svg" style={{ width: '411px', height: '291px', margin: '47px 0 0 -14px' }} />
+                    {/*<SVG src="neurons.svg" style={{ width: '411px', height: '291px', margin: '47px 0 0 -14px' }} />*/}
+                    <img src={require(`../../assets/neurons.jpg`)} alt="" style={{ width: '300px', height: '300px' }} />
                 </div>
             </div>
             <div className="module moduleHeadline" style={{ padding: 0, height: '60%' }}>

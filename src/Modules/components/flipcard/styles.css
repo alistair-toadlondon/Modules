@@ -1,0 +1,9 @@
+div.cards {
+    width: 350px;
+    height: 350px;
+    margin: 20px;
+    perspective: 600px;
+}
+
+
+
