@@ -1,0 +1,12 @@
+div.container {
+    /*position: relative;*/
+    display: block;
+}
+
+div.moduleHeadline {
+    display: block;
+}
+
+div.chooseItem {
+    position: absolute;
+}

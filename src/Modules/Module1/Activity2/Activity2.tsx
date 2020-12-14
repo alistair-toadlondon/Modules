@@ -36,14 +36,14 @@ const Activity2: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
                 <span className="magenta">Which is more powerful?</span>
             </div>
             <div className="module moduleRow">
-                <div className={ status === 'loose' ? 'shake' : '' }>
-                    <div className="item" style={{ backgroundColor: status === 'loose' ? '#CF1322' : '' }} onClick={loose}>
-                        <SVG src="laptop.svg" style={{ width: '411px', height: '291px', margin: '47px 0 0 -14px' }} />
-                    </div>
-                </div>
                 <div className={ status === 'win' ? 'boing' : '' }>
                     <div className="item" style={{ backgroundColor: status === 'win' ? '#89CE8C' : '' }} onClick={win}>
                         <SVG src="brain_complete.svg" style={{ width: '415px', height: '384px', margin: '25px 0 0 -16px' }} />
+                    </div>
+                </div>
+                <div className={ status === 'loose' ? 'shake' : '' }>
+                    <div className="item" style={{ backgroundColor: status === 'loose' ? '#CF1322' : '' }} onClick={loose}>
+                        <SVG src="laptop.svg" style={{ width: '411px', height: '291px', margin: '47px 0 0 -14px' }} />
                     </div>
                 </div>
             </div>

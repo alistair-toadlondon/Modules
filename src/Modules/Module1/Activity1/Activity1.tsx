@@ -19,12 +19,12 @@ const Activity1: React.FunctionComponent<IToggleActivityProps & IActivityProps> 
         { name: 'CEREBELLUM', size: { width: '136px', height: '83px' }, startPos: { X: '-180px', Y: '100px' }, endPos: { X: '244px', Y: '210px' }, image: 'medula.svg', dropped: false },
         { name: 'BRAIN_STEM', size: { width: '77px', height: '123px' }, startPos: { X: '-130px', Y: '320px' }, endPos: { X: '188px', Y: '249px' }, image: 'brain_stem.svg', dropped: false }
     ];
-    
+
     const [lastDropped, setLastDropped] = useState('');
     const itemDropped = (item: string) => {
         setLastDropped(item);
     }
-    
+
     const finished = (event: any) => {
         onSatisfiedCondition(event);
     }

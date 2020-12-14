@@ -68,7 +68,7 @@ export const Video: React.FC<VideoProps> = ({ width, height, character, transiti
 
     return (
         <div className={'videoContainer spring' + ((status === 'open' || status === 'playing') ? ' springup' : '')} style={{ width: width, height: height, padding: borderColour === '' ? '0' : '5px', background: borderColour }}>
-            <div style={{ width: width, height: height }}>
+            <div style={{ width: width - 10, height: height - 10 }}>
                 <video ref={videoFile} width={width + 20} height={height + 20} style={{ margin: '-10px' }} muted={true}>
                     <source src={video} type="video/mp4" />
                 </video>
